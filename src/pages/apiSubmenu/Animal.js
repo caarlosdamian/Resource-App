@@ -1,17 +1,12 @@
-import ApiTable from "../../components/ApiTable";
-import { ApisHeader } from "../../styles/apis";
+
 import React from "react";
 import { ApiHeaders } from "../../resources/Headers";
 import {AnimalsData} from "../../resources/Data";
-
+import ShowData from '../../components/ShowData'
 function Animal() {
   return (
-    <div className="">
-      <div className="container">
-        <ApisHeader className="display-1">Animals</ApisHeader>
-
-        <ApiTable headers={ApiHeaders} apis={AnimalsData} />
-      </div>
+    <div>
+   <ShowData title="Animals" apis={AnimalsData} headers={ApiHeaders}/>
     </div>
   );
 }
