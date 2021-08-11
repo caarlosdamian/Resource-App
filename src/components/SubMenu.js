@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {SidebarLink,SidebarLabel,DropdownLink} from '../styles/nav'
 
-const SubMenu = ({ item }) => {
+const SubMenu = ({ item ,setSidebar,sidebar}) => {
   const [subnav, setSubnav] = useState(false);
 
   const showSubnav = () => setSubnav(!subnav);
@@ -11,7 +11,7 @@ const SubMenu = ({ item }) => {
       <SidebarLink to={item.path} onClick={item.subNav && showSubnav}>
         <div>
           {item.icon}
-          <SidebarLabel>{item.title}</SidebarLabel>
+          <SidebarLabel onClick={()=>setSidebar(!sidebar)}>{item.title}</SidebarLabel>
         </div>
         <div>
           {item.subNav && subnav
@@ -26,7 +26,7 @@ const SubMenu = ({ item }) => {
           return (
             <DropdownLink to={item.path} key={index}>
               {item.icon}
-              <SidebarLabel>{item.title}</SidebarLabel>
+              <SidebarLabel onClick={()=>setSidebar(!sidebar)}>{item.title}</SidebarLabel>
             </DropdownLink>
           );
         })}
